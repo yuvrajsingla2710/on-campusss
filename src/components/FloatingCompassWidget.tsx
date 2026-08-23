@@ -151,7 +151,7 @@ export const FloatingCompassWidget: React.FC<FloatingCompassWidgetProps> = ({
       {isOpen && (
         <div 
           id="compass-floating-chatbox"
-          className={`pointer-events-auto mb-3 sm:mb-4 bg-[#0a060e]/95 backdrop-blur-2xl border border-pink-500/30 rounded-3xl shadow-[0_20px_70px_rgba(236,72,153,0.35)] flex flex-col overflow-hidden transition-all duration-300 animate-in fade-in zoom-in-95 origin-bottom-right ${
+          className={`pointer-events-auto mb-3 sm:mb-4 bg-[#0a060e]/95 backdrop-blur-2xl border border-pink-500/30 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 animate-in fade-in zoom-in-95 origin-bottom-right ${
             isExpanded 
               ? 'w-[calc(100vw-2rem)] sm:w-[500px] h-[82vh] max-h-[750px]' 
               : 'w-[calc(100vw-2rem)] sm:w-[400px] h-[540px] max-h-[82vh]'
@@ -160,14 +160,14 @@ export const FloatingCompassWidget: React.FC<FloatingCompassWidgetProps> = ({
           {/* Top Bar with Pink-to-White gradient banner */}
           <div className="px-5 py-4 bg-gradient-to-r from-pink-950/80 via-[#150a1b]/90 to-[#0c0612]/90 border-b border-pink-500/20 flex items-center justify-between relative">
             
-            {/* Ambient Pink Top Highlight */}
-            <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-pink-400 to-transparent" />
+            {/* Top Border Line */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-pink-500/30" />
 
             <div className="flex items-center gap-3">
               {/* Compass Icon Badge */}
               <div className="relative">
                 <CompassStarIcon size={36} />
-                <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-pink-400 border-2 border-black rounded-full shadow-[0_0_6px_#f472b6]" />
+                <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-pink-400 border-2 border-black rounded-full" />
               </div>
 
               <div>
@@ -217,7 +217,7 @@ export const FloatingCompassWidget: React.FC<FloatingCompassWidgetProps> = ({
                 <div
                   className={`max-w-[90%] p-3.5 sm:p-4 rounded-2xl text-sm leading-relaxed transition-all shadow-md ${
                     msg.sender === 'user'
-                      ? 'bg-gradient-to-r from-pink-500 to-rose-400 text-white font-medium shadow-[0_4px_20px_rgba(244,114,182,0.35)] rounded-br-none'
+                      ? 'bg-gradient-to-r from-pink-500 to-rose-400 text-white font-medium rounded-br-none'
                       : 'bg-[#150a1d]/90 border border-pink-500/25 text-slate-100 rounded-bl-none shadow-black/50'
                   }`}
                 >
@@ -352,13 +352,13 @@ export const FloatingCompassWidget: React.FC<FloatingCompassWidgetProps> = ({
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Ask COMPASS anything..."
                 disabled={isLoading}
-                className="w-full pl-3.5 pr-11 py-2.5 bg-[#150a1d] border border-pink-500/30 focus:border-pink-400 rounded-xl text-xs sm:text-sm text-white placeholder-pink-200/50 focus:outline-none transition-all shadow-inner focus:shadow-[0_0_12px_rgba(244,114,182,0.15)] font-sans"
+                className="w-full pl-3.5 pr-11 py-2.5 bg-[#150a1d] border border-pink-500/30 focus:border-pink-400 rounded-xl text-xs sm:text-sm text-white placeholder-pink-200/50 focus:outline-none transition-all font-sans"
               />
               <button
                 id="floating-compass-send"
                 onClick={() => handleSend()}
                 disabled={!inputText.trim() || isLoading}
-                className="absolute right-1.5 p-2 rounded-lg bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 disabled:opacity-40 text-white transition-all cursor-pointer shadow-[0_0_10px_rgba(244,114,182,0.25)]"
+                className="absolute right-1.5 p-2 rounded-lg bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 disabled:opacity-40 text-white transition-all cursor-pointer"
               >
                 <Send className="w-3.5 h-3.5" />
               </button>
