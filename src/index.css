@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #0d0e13;
+    color: #f3f4f6;
+    overflow-x: hidden;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .font-mono-tech {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Genuine Collegiate & Clean Surface Utilities - Grey & Very Light Pink */
+.campus-card {
+  background-color: #161720;
+  border: 1px solid rgba(251, 207, 232, 0.12);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.campus-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.campus-card-hover:hover {
+  border-color: rgba(244, 114, 182, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.6), 0 0 20px rgba(251, 207, 232, 0.08);
+}
+
+.campus-pill {
+  border: 1px solid rgba(251, 207, 232, 0.15);
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbar in Grey & Light Pink tones */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0e13;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272935;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f472b6;
+}
+
+/* ========================================================================= */
+/* ADVANCED 3D GEOMETRIC KEYFRAME ANIMATIONS & PERSPECTIVE ENGINES */
+/* ========================================================================= */
+
+@keyframes pulse-slow {
+  0%, 100% { 
+    opacity: 0.2; 
+    transform: scale(1); 
+    filter: drop-shadow(0 0 16px rgba(251, 207, 232, 0.1));
+  }
+  50% { 
+    opacity: 0.45; 
+    transform: scale(1.03); 
+    filter: drop-shadow(0 0 24px rgba(244, 114, 182, 0.15));
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
+
+/* 3D Gyroscope Tumble Rotation with Softer Grounded Drop-Shadows and Ambient Glow */
+@keyframes gyro-rotate-1 {
+  0% { 
+    transform: rotate3d(1, 1, 0, 0deg); 
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(251, 207, 232, 0.12));
+  }
+  50% { 
+    transform: rotate3d(1, 1, 0, 180deg) scale(1.015); 
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55)) drop-shadow(0 2px 8px rgba(244, 114, 182, 0.15));
+  }
+  100% { 
+    transform: rotate3d(1, 1, 0, 360deg); 
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(251, 207, 232, 0.12));
+  }
+}
+
+@keyframes gyro-rotate-2 {
+  0% { 
+    transform: rotate3d(0, 1, 1, 360deg); 
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(244, 114, 182, 0.12));
+  }
+  50% { 
+    transform: rotate3d(0, 1, 1, 180deg) scale(0.985); 
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5)) drop-shadow(0 2px 7px rgba(253, 226, 240, 0.11));
+  }
+  100% { 
+    transform: rotate3d(0, 1, 1, 0deg); 
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(244, 114, 182, 0.12));
+  }
+}
+
+@keyframes gyro-rotate-3 {
+  0% { 
+    transform: rotate3d(1, 0, 1, 0deg); 
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(251, 207, 232, 0.12));
+  }
+  50% { 
+    transform: rotate3d(1, 0, 1, 180deg) scale(1.02); 
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55)) drop-shadow(0 2px 9px rgba(244, 114, 182, 0.14));
+  }
+  100% { 
+    transform: rotate3d(1, 0, 1, 360deg); 
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(251, 207, 232, 0.12));
+  }
+}
+
+.animate-gyro-1 {
+  animation: gyro-rotate-1 22s infinite linear;
+}
+
+.animate-gyro-2 {
+  animation: gyro-rotate-2 18s infinite linear;
+}
+
+.animate-gyro-3 {
+  animation: gyro-rotate-3 26s infinite linear;
+}
+
+/* 3D Polyhedron Node Float */
+@keyframes node-float-1 {
+  0%, 100% { 
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg); 
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+  }
+  33% { 
+    transform: translate3d(10px, -18px, 15px) rotateX(12deg) rotateY(20deg); 
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55)) drop-shadow(0 2px 8px rgba(251, 207, 232, 0.12));
+  }
+  66% { 
+    transform: translate3d(-8px, 10px, -10px) rotateX(-15deg) rotateY(-12deg); 
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(244, 114, 182, 0.1));
+  }
+}
+
+@keyframes node-float-2 {
+  0%, 100% { 
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg); 
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+  }
+  33% { 
+    transform: translate3d(-14px, 12px, -18px) rotateX(-18deg) rotateY(14deg); 
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(244, 114, 182, 0.1));
+  }
+  66% { 
+    transform: translate3d(10px, -14px, 12px) rotateX(12deg) rotateY(-22deg); 
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55)) drop-shadow(0 2px 8px rgba(251, 207, 232, 0.12));
+  }
+}
+
+.animate-node-float-1 {
+  animation: node-float-1 9s infinite ease-in-out;
+}
+
+.animate-node-float-2 {
+  animation: node-float-2 11s infinite ease-in-out;
+}
+
+/* Gentle Grounded Spin Slow Animations in Grey & Soft Pink */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 4px rgba(251, 207, 232, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.5)) drop-shadow(0 2px 6px rgba(244, 114, 182, 0.12));
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 4px rgba(251, 207, 232, 0.1));
+  }
+}
+
+@keyframes spin-reverse-slow {
+  0% {
+    transform: rotate(360deg);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 4px rgba(244, 114, 182, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.5)) drop-shadow(0 2px 6px rgba(253, 226, 240, 0.12));
+  }
+  100% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 4px rgba(244, 114, 182, 0.1));
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s infinite linear;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 28s infinite linear;
+}
+
+/* Laser Energy Pulse along Circuit Vector Lines */
+@keyframes laser-stream {
+  0% { transform: scaleX(0.2) translateX(-100%); opacity: 0; filter: drop-shadow(0 0 4px rgba(251, 207, 232, 0.2)); }
+  50% { opacity: 0.8; filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.3)); }
+  100% { transform: scaleX(1) translateX(200%); opacity: 0; filter: drop-shadow(0 0 4px rgba(251, 207, 232, 0.2)); }
+}
+
+.animate-laser-stream {
+  animation: laser-stream 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hologram Scanning Line */
+@keyframes holo-scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
+.animate-holo-scan {
+  animation: holo-scan 4s infinite linear;
+}
+
+/* CSS 3D Preserve-3D Container */
+.preserve-3d {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
