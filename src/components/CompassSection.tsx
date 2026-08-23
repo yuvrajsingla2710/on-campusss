@@ -70,7 +70,7 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
       'Emergency medical contacts',
       'Printing & xerox shops',
     ],
-  };};
+  };
 
   const handleSend = (textToSend?: string) => {
     const text = textToSend || inputText;

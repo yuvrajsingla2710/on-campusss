@@ -22,24 +22,24 @@ type HubDef = {
 };
 
 const HUBS: HubDef[] = [
-  { name: 'COMPASS AI', category: 'CO-PILOT', metric: 'Campus Brain', color: 0xf472b6, angle: 0, radius: 0, shape: 'core',
-    blurb: 'The central intelligence tying every district together — ask anything about campus life.',
-    facts: ['Answers in seconds', 'Knows all 6 hubs', 'Available 24/7'] },
-  { name: 'BORROW LAB', category: 'HARDWARE', metric: '42+ Available', color: 0x00f2ff, angle: -Math.PI / 2, radius: 26, shape: 'lab',
-    blurb: 'Borrow gear from peers instead of buying it — cameras, kits, boards and tools.',
+  { name: 'COMPASS', category: 'CAMPUS AI', metric: 'Campus Brain', color: 0xf472b6, angle: 0, radius: 0, shape: 'core',
+    blurb: 'The central intelligence connecting every campus service — ask anything about campus life.',
+    facts: ['Instant answers', 'Knows all 6 services', 'Available 24/7'] },
+  { name: 'BORROW', category: 'SERVICE 01', metric: '42+ Available', color: 0x00f2ff, angle: -Math.PI / 2, radius: 26, shape: 'lab',
+    blurb: 'Borrow gear from peers instead of buying — cameras, lab kits, calculators and tools.',
     facts: ['42+ items live', 'Zero deposits', 'Peer-verified'] },
-  { name: 'MENTORSHIP', category: 'SENIORS', metric: '98% Verified', color: 0xa855f7, angle: -Math.PI / 2 + (Math.PI * 2) / 5, radius: 26, shape: 'tower',
-    blurb: 'Seniors and alumni who have walked your path, one message away.',
-    facts: ['98% verified profiles', 'Avg reply < 6h', 'Placement & research tracks'] },
-  { name: 'SKILL MATRIX', category: 'EXCHANGE', metric: '600+ Skills', color: 0xf472b6, angle: -Math.PI / 2 + (Math.PI * 4) / 5, radius: 26, shape: 'atrium',
-    blurb: 'Trade what you know for what you want to learn, no money involved.',
-    facts: ['600+ skills mapped', 'Match by timetable', 'Barter-based'] },
-  { name: 'CAMPUS PULSE', category: 'COMMUNITY', metric: 'Live 24/7', color: 0x34d399, angle: -Math.PI / 2 + (Math.PI * 6) / 5, radius: 26, shape: 'dome',
-    blurb: 'The live feed of everything happening right now across hostels and blocks.',
-    facts: ['Real-time posts', 'Event radar', 'Wing-level channels'] },
-  { name: 'MARKETPLACE', category: 'STUDENT TRADE', metric: '₹0 Commission', color: 0xfbbf24, angle: -Math.PI / 2 + (Math.PI * 8) / 5, radius: 26, shape: 'slab',
-    blurb: 'Buy and sell within campus with zero commission and verified students only.',
+  { name: 'GUIDANCE', category: 'SERVICE 02', metric: '98% Verified', color: 0xa855f7, angle: -Math.PI / 2 + (Math.PI * 2) / 5, radius: 26, shape: 'tower',
+    blurb: 'Learn from seniors who have experienced courses, exams, and professors.',
+    facts: ['98% verified mentors', 'Course blueprints', 'Placement tracks'] },
+  { name: 'SKILL EXCHANGE', category: 'SERVICE 03', metric: '600+ Skills', color: 0xf472b6, angle: -Math.PI / 2 + (Math.PI * 4) / 5, radius: 26, shape: 'atrium',
+    blurb: 'Trade what you know for what you want to learn — barter-based peer learning.',
+    facts: ['600+ skills mapped', 'Time match algorithm', 'Zero cost'] },
+  { name: 'MARKETPLACE', category: 'SERVICE 04', metric: '₹0 Commission', color: 0xfbbf24, angle: -Math.PI / 2 + (Math.PI * 6) / 5, radius: 26, shape: 'slab',
+    blurb: 'Buy and sell textbooks, notes, electronics and furniture with verified students.',
     facts: ['₹0 commission', 'Campus-only buyers', 'Instant chat'] },
+  { name: 'CONNECT', category: 'SERVICE 05', metric: 'Active Squads', color: 0x34d399, angle: -Math.PI / 2 + (Math.PI * 8) / 5, radius: 26, shape: 'dome',
+    blurb: 'Find hackathon teammates, research projects, and campus communities.',
+    facts: ['Recruiting squads', 'Project tracking', 'Cross-branch teams'] },
 ];
 
 const hexOf = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
@@ -134,16 +134,17 @@ function makeLabelTexture(hub: HubDef): THREE.CanvasTexture {
   ctx.fill();
 
   ctx.fillStyle = accent;
-  ctx.font = '600 24px "JetBrains Mono", monospace';
-  ctx.fillText(hub.category, 74, 96);
+  ctx.font = '600 22px "JetBrains Mono", monospace';
+  ctx.fillText(hub.category, 74, 94);
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '800 40px "Outfit", sans-serif';
-  ctx.fillText(hub.name, 74, 142);
+  const fontSize = hub.name.length > 12 ? 30 : 38;
+  ctx.font = `800 ${fontSize}px "Outfit", sans-serif`;
+  ctx.fillText(hub.name, 74, 138);
 
-  ctx.fillStyle = 'rgba(255,255,255,0.62)';
-  ctx.font = '500 22px "JetBrains Mono", monospace';
-  ctx.fillText(hub.metric, 74, 176);
+  ctx.fillStyle = 'rgba(255,255,255,0.65)';
+  ctx.font = '500 20px "JetBrains Mono", monospace';
+  ctx.fillText(hub.metric, 74, 174);
 
   const tex = new THREE.CanvasTexture(canvas);
   tex.colorSpace = THREE.SRGBColorSpace;
@@ -799,22 +800,34 @@ export function Campus3DVisualizer({ onSelectNode }: Campus3DVisualizerProps) {
 
       {/* live hover readout */}
       <div
-        className={`pointer-events-none absolute right-6 top-24 hidden max-w-[260px] rounded-2xl border px-4 py-3.5 backdrop-blur-xl transition-all duration-300 lg:block shadow-xl ${
-          hovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+        onClick={() => {
+          if (hovered) {
+            selectRef.current?.(hovered.name);
+          }
+        }}
+        className={`pointer-events-auto cursor-pointer absolute right-6 top-24 hidden max-w-[260px] rounded-2xl border px-4 py-3.5 backdrop-blur-xl transition-all duration-300 lg:block shadow-xl group hover:scale-105 active:scale-95 ${
+          hovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0 pointer-events-none'
         }`}
         style={{
           borderColor: hovered ? `${hexOf(hovered.color)}66` : 'rgba(255,255,255,0.08)',
-          backgroundColor: 'rgba(15,23,42,0.85)',
+          backgroundColor: 'rgba(15,23,42,0.92)',
         }}
+        title="Click to open this service"
       >
         <div className="text-[10px] font-bold tracking-wider uppercase text-slate-400" style={{ color: hovered ? hexOf(hovered.color) : '#94a3b8' }}>
           {hovered?.category ?? ''}
         </div>
-        <div className="font-heading text-base font-bold text-white mt-0.5">{hovered?.name ?? ''}</div>
+        <div className="font-heading text-base font-bold text-white mt-0.5 group-hover:text-pink-200 transition-colors flex items-center justify-between">
+          <span>{hovered?.name ?? ''}</span>
+          <span className="text-xs text-pink-300">↗</span>
+        </div>
         <div className="text-xs text-slate-300 mt-1">{hovered?.blurb ?? ''}</div>
-        <div className="text-[11px] font-semibold text-emerald-400 mt-1.5 flex items-center gap-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-          <span>{hovered?.metric ?? ''}</span>
+        <div className="text-[11px] font-semibold text-emerald-400 mt-2 flex items-center justify-between">
+          <div className="flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span>{hovered?.metric ?? ''}</span>
+          </div>
+          <span className="text-[10px] font-mono-tech text-pink-300 font-bold underline">Open Service →</span>
         </div>
       </div>
 

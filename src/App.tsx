@@ -645,6 +645,23 @@ export function App() {
     }
   };
 
+  const handleSelectHubFrom3D = (hubName: string) => {
+    const name = hubName.toUpperCase();
+    if (name.includes('BORROW')) {
+      handleSelectService('borrow');
+    } else if (name.includes('GUIDANCE') || name.includes('MENTOR')) {
+      handleSelectService('guidance');
+    } else if (name.includes('SKILL')) {
+      handleSelectService('skills');
+    } else if (name.includes('MARKET')) {
+      handleSelectService('marketplace');
+    } else if (name.includes('CONNECT') || name.includes('PROJECT') || name.includes('SQUAD')) {
+      handleSelectService('connect');
+    } else if (name.includes('COMPASS')) {
+      handleSelectService('compass');
+    }
+  };
+
   // Marketplace Handlers
   const handleCreateMarketplaceItem = (
     itemData: Omit<MarketplaceItem, 'id' | 'createdAt' | 'available'>
@@ -1009,6 +1026,7 @@ export function App() {
           onExploreServices={() => handleNavigateToSection('services')}
           onEnterNetwork={() => handleNavigateToSection('services')}
           onOpenPresentation={() => setIsPresentationOpen(true)}
+          onSelectHub={handleSelectHubFrom3D}
         />
         <TutorialVideoSection />
       </div>
