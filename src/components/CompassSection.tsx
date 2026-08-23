@@ -34,43 +34,43 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
 
   const categorizedPresets = {
     all: [
-      'Who can lend me a Casio fx-991 calculator today?',
-      'Find me an AI or robotics project recruiting developers.',
-      'Who is offering Figma UI/UX mentorship?',
-      'Where can I find past year papers for Operating Systems?',
-      'What are the Central Library 24/7 exam hours and Wi-Fi proxy?',
+      'Borrow a calculator today',
+      'AI projects recruiting now',
+      'Figma mentorship available?',
+      'OS past year papers',
+      'Library exam hours',
     ],
     academic: [
-      'Where can I find past year papers for Operating Systems?',
-      'Are Prof. Menon’s Signals & Systems exams open-notes?',
-      'Who has handwritten DSA & DBMS notes for Semester 3?',
-      'How do I apply for Summer Research Internships?',
+      'OS past year papers',
+      'Signals & Systems exam format',
+      'DSA & DBMS notes for Sem 3',
+      'Summer research internships',
     ],
     gear: [
-      'Who can lend me a Casio fx-991 calculator today?',
-      'Where can I reserve a 50MHz Oscilloscope on campus?',
-      'Where can I borrow a Lab Coat & UV safety goggles?',
-      'Who has an Arduino Mega and sensor kit available?',
+      'Borrow a Casio fx-991',
+      'Reserve an Oscilloscope',
+      'Lab coat & safety goggles',
+      'Arduino Mega sensor kit',
     ],
     projects: [
-      'Find me an AI or robotics project recruiting developers.',
-      'How do I join the CampusVision attendance project?',
-      'What skills does the SoilSense IoT squad need?',
-      'Are there any NLP or speech recognition projects looking for members?',
+      'AI/robotics projects recruiting',
+      'Join CampusVision project',
+      'SoilSense IoT squad needs',
+      'NLP projects looking for members',
     ],
     skills: [
-      'Who is offering Figma UI/UX mentorship?',
-      'Who can teach me KiCAD & PCB soldering?',
-      'Find someone who knows ROS 2 and Gazebo robotics.',
-      'How does the peer skill swap match score work?',
+      'Figma UI/UX mentorship',
+      'KiCAD & PCB soldering',
+      'ROS 2 & Gazebo robotics',
+      'How skill swap matching works',
     ],
     campus: [
-      'What are the Central Library 24/7 exam hours and Wi-Fi proxy?',
-      'What are the hostel mess timings and special dinners?',
-      'What is the campus emergency medical dispensary number?',
-      'Where are the nearest printing and xerox shops on campus?',
+      'Library 24/7 exam hours',
+      'Hostel mess timings',
+      'Emergency medical contacts',
+      'Printing & xerox shops',
     ],
-  };
+  };};
 
   const handleSend = (textToSend?: string) => {
     const text = textToSend || inputText;
@@ -153,63 +153,61 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
   };
 
   return (
-    <section id="compass" className="py-24 border-b border-zinc-800 relative bg-[#0e0f16] overflow-hidden select-none">
-      {/* Background Pink & Rose Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-[#fbcfe8]/[0.04] rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse-slow" />
+    <section id="compass" className="py-28 border-b border-zinc-800 relative bg-[#0e0f16] overflow-hidden select-none">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Title */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight font-heading">
-            Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-100 to-pink-300 drop-shadow-[0_0_15px_rgba(251,207,232,0.18)]">COMPASS</span>, your campus AI.
+            Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-100 to-pink-300">COMPASS</span>, your campus AI.
           </h2>
         </div>
 
         {/* Two-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start max-w-6xl mx-auto">
           
           {/* Left: Chat Terminal (8 cols) */}
-          <div className="lg:col-span-8 bg-[#12131d] border border-zinc-800 rounded-3xl p-4 sm:p-6 shadow-[0_4px_30px_rgba(0,0,0,0.6)] backdrop-blur-xl relative flex flex-col justify-between min-h-[540px]">
+          <div className="lg:col-span-8 bg-[#12131d] border border-zinc-800 rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-xl relative flex flex-col justify-between min-h-[540px]">
             
             {/* Chat Header */}
-            <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-zinc-800">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-zinc-800">
               <div className="flex items-center gap-3">
                 <CompassStarIcon size={34} />
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-bold text-white font-heading">COMPASS AI</span>
-                    <span className="px-1.5 py-0.2 rounded text-[9px] font-mono-tech uppercase font-bold bg-pink-950/50 text-pink-200 border border-pink-300/30">
-                      Gemini 3.7 Flash
+                    <span className="px-1.5 py-0.5 rounded text-[9px] font-mono-tech uppercase font-bold bg-pink-950/50 text-pink-200 border border-pink-300/30">
+                      Gemini
                     </span>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-750 text-[11px] font-mono-tech text-zinc-300 shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-pink-300 animate-pulse shadow-[0_0_6px_rgba(251,207,232,0.6)]" />
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-750 text-[11px] font-mono-tech text-zinc-300">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
                   <span>ONLINE</span>
                 </div>
               </div>
             </div>
 
             {/* Query Category Filter Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 mb-3 border-b border-zinc-800/80 scrollbar-none text-xs font-mono-tech">
+            <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-4 border-b border-zinc-800/80 scrollbar-none text-xs font-mono-tech">
               {[
-                { id: 'all', label: 'All Queries' },
-                { id: 'academic', label: '🎓 Academics & PYQs' },
-                { id: 'gear', label: '📦 Lab & Gear' },
-                { id: 'projects', label: '🚀 Squads' },
-                { id: 'skills', label: '⚡ Skill Swap' },
-                { id: 'campus', label: '📍 Campus Life' },
+                { id: 'all', label: 'All' },
+                { id: 'academic', label: '🎓 Academic' },
+                { id: 'gear', label: '📦 Gear' },
+                { id: 'projects', label: '🚀 Projects' },
+                { id: 'skills', label: '⚡ Skills' },
+                { id: 'campus', label: '📍 Campus' },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveCategoryTab(tab.id as any)}
-                  className={`px-2.5 py-1 rounded-xl whitespace-nowrap transition-all cursor-pointer text-xs ${
+                  className={`px-3 py-1.5 rounded-xl whitespace-nowrap transition-all cursor-pointer text-xs ${
                     activeCategoryTab === tab.id
-                      ? 'bg-gradient-to-r from-pink-200 to-rose-200 text-zinc-950 font-bold shadow-[0_0_10px_rgba(251,207,232,0.3)]'
+                      ? 'bg-gradient-to-r from-pink-200 to-rose-200 text-zinc-950 font-bold'
                       : 'bg-zinc-800/70 text-zinc-400 hover:text-white hover:bg-zinc-750 border border-zinc-750'
                   }`}
                 >
@@ -219,7 +217,7 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
             </div>
 
             {/* Messages Area */}
-            <div ref={messagesContainerRef} className="space-y-4 max-h-[340px] overflow-y-auto pr-2 mb-3 custom-scrollbar">
+            <div ref={messagesContainerRef} className="space-y-5 max-h-[380px] overflow-y-auto pr-2 mb-4 custom-scrollbar">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -228,10 +226,10 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
                   }`}
                 >
                   <div
-                    className={`max-w-[92%] p-4 rounded-2xl text-sm leading-relaxed ${
+                    className={`max-w-[88%] p-4 rounded-2xl text-sm leading-relaxed ${
                       msg.sender === 'user'
-                        ? 'bg-gradient-to-r from-pink-200 via-rose-100 to-pink-300 text-zinc-950 font-medium shadow-[0_0_15px_rgba(251,207,232,0.18)] rounded-br-sm'
-                        : 'bg-[#181926] border border-zinc-800 text-zinc-200 rounded-bl-sm shadow-lg'
+                        ? 'bg-gradient-to-r from-pink-200 via-rose-100 to-pink-300 text-zinc-950 font-medium rounded-br-sm'
+                        : 'bg-[#181926] border border-zinc-800 text-zinc-200 rounded-bl-sm'
                     }`}
                   >
                     {msg.sender === 'compass' && (
@@ -279,7 +277,7 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
                               onSelectActionCard &&
                               onSelectActionCard(card.type, card.targetId)
                             }
-                            className="p-3 rounded-xl bg-[#141522] border border-zinc-750 hover:border-pink-300/60 text-left transition-all cursor-pointer flex flex-col justify-between group shadow-sm hover:shadow-[0_0_15px_rgba(251,207,232,0.12)]"
+                            className="p-3 rounded-xl bg-[#141522] border border-zinc-750 hover:border-pink-300/60 text-left transition-all cursor-pointer flex flex-col justify-between group"
                           >
                             <div>
                               <div className="flex items-center justify-between gap-1 mb-1">
@@ -333,20 +331,20 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
               {isLoading && (
                 <div className="flex items-center gap-2.5 p-3.5 bg-[#181926] border border-zinc-750 rounded-2xl text-xs sm:text-sm font-mono-tech text-pink-300 animate-pulse">
                   <Loader2 className="w-4 h-4 animate-spin text-pink-300" />
-                  <span>COMPASS is synthesizing campus neural network data...</span>
+                  <span>Thinking...</span>
                 </div>
               )}
             </div>
 
             {/* Quick Query Pills */}
-            <div className="mb-3">
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-[11px] scrollbar-none">
+            <div className="mb-4">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 text-[11px] scrollbar-none">
                 {categorizedPresets[activeCategoryTab].map((preset, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSend(preset)}
                     disabled={isLoading}
-                    className="px-3 py-1.5 rounded-xl bg-zinc-850 border border-zinc-750 hover:border-pink-300/50 text-zinc-300 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 text-xs"
+                    className="px-3.5 py-2 rounded-xl bg-zinc-850 border border-zinc-750 hover:border-pink-300/50 text-zinc-300 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 text-xs"
                   >
                     {preset}
                   </button>
@@ -362,7 +360,7 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask COMPASS anything about gear, projects, mentors, PYQs, exams, timings..."
+                placeholder="Ask about campus resources, gear, projects..."
                 disabled={isLoading}
                 className="w-full pl-4 pr-12 py-3.5 bg-[#181926] border border-zinc-800 focus:border-pink-300 rounded-2xl text-sm text-white placeholder-zinc-500 focus:outline-none transition-colors font-sans focus:ring-2 focus:ring-pink-300/20"
               />
@@ -370,7 +368,7 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
                 id="compass-section-send-btn"
                 onClick={() => handleSend()}
                 disabled={!inputText.trim() || isLoading}
-                className="absolute right-2 p-2.5 rounded-xl bg-gradient-to-r from-pink-200 to-rose-200 disabled:opacity-40 text-zinc-950 font-bold transition-all cursor-pointer shadow-[0_0_12px_rgba(251,207,232,0.25)] hover:brightness-105"
+                className="absolute right-2 p-2.5 rounded-xl bg-gradient-to-r from-pink-200 to-rose-200 disabled:opacity-40 text-zinc-950 font-bold transition-all cursor-pointer hover:brightness-105"
                 title="Send query"
               >
                 <Send className="w-4 h-4" />
@@ -380,31 +378,27 @@ export const CompassSection: React.FC<CompassSectionProps> = ({
           </div>
 
           {/* Right: Holographic Star Pedestal */}
-          <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-[#12131d] border border-zinc-800 relative overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
-            
-            {/* Ambient Pink Backlight */}
-            <div className="absolute inset-0 bg-radial-at-c from-pink-300/10 via-rose-300/5 to-transparent blur-2xl pointer-events-none" />
+          <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-[#12131d] border border-zinc-800 relative overflow-hidden shadow-2xl">
 
             <div className="relative z-10 flex flex-col md:grid md:grid-cols-2 md:gap-8 lg:flex lg:flex-col lg:gap-0 items-center justify-center text-center md:text-left lg:text-center">
-              {/* Holographic Glowing Pedestal Stage */}
+              {/* Pedestal Stage */}
               <div className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center mb-4 md:mb-0 lg:mb-4 mx-auto">
-                <div className="absolute inset-0 rounded-full border border-pink-300/30 animate-spin-slow" />
-                <div className="absolute inset-4 rounded-full border border-rose-300/25 animate-reverse-spin" />
-                <div className="absolute inset-10 rounded-full border border-white/20 border-dashed" />
-                <div className="absolute bottom-4 w-36 h-8 rounded-full bg-pink-300/20 blur-md" />
+                <div className="absolute inset-0 rounded-full border border-pink-300/20 animate-spin-slow" />
+                <div className="absolute inset-4 rounded-full border border-rose-300/15 animate-reverse-spin" />
+                <div className="absolute inset-10 rounded-full border border-white/10 border-dashed" />
 
                 <div className="relative z-10 animate-float">
-                  <CompassStarIcon size={100} glow={true} />
+                  <CompassStarIcon size={100} glow={false} />
                 </div>
               </div>
 
               <div className="w-full flex flex-col justify-center">
                 <div className="space-y-1.5 mt-2 md:mt-0 lg:mt-2">
                   <h4 className="text-base font-bold text-white font-heading tracking-wide">
-                    Campus Neural Core
+                    Campus AI Assistant
                   </h4>
                   <p className="text-xs text-zinc-400 max-w-xs md:max-w-none lg:max-w-xs mx-auto md:mx-0 lg:mx-auto leading-relaxed">
-                    Autonomous reasoning connecting student rosters, borrow items, skill exchanges, and timetable sync with sub-second latency.
+                    Ask anything about campus — borrow gear, find projects, swap skills, or explore the marketplace.
                   </p>
                 </div>
 
