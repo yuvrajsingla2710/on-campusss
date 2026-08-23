@@ -377,24 +377,21 @@ export const FloatingCompassWidget: React.FC<FloatingCompassWidgetProps> = ({
         className="pointer-events-auto relative group p-1 rounded-full cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95 focus:outline-none"
         title="Open COMPASS AI Assistant"
       >
-        {/* Subtle Pulsing Pink Glow Rings */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-600 via-rose-400 to-white opacity-40 blur-sm group-hover:opacity-60 group-hover:blur-md transition-all animate-pulse" />
-
         {/* Outer Dual-Tone Pink + White Ring */}
-        <div className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-pink-500 via-rose-300 to-white p-[2px] shadow-[0_0_15px_rgba(244,114,182,0.4)] flex items-center justify-center">
+        <div className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-pink-500 via-rose-300 to-white p-[2px] flex items-center justify-center">
           
           {/* Inner Dark Radial Capsule */}
           <div className="w-full h-full rounded-full bg-[#120718] flex items-center justify-center relative overflow-hidden">
             <CompassStarIcon size={34} />
           </div>
 
-          {/* Unread Message / Live Active Ping Badge */}
+          {/* Unread Message Badge */}
           {unreadCount > 0 ? (
-            <span className="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full bg-white text-pink-600 font-bold text-[10px] shadow-[0_0_6px_rgba(255,255,255,0.4)] animate-bounce">
+            <span className="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full bg-white text-pink-600 font-bold text-[10px]">
               {unreadCount}
             </span>
           ) : (
-            <span className="absolute top-0 right-0 w-3 h-3 rounded-full bg-pink-400 border-2 border-black animate-ping shadow-[0_0_4px_#f472b6]" />
+            <span className="absolute top-0 right-0 w-3 h-3 rounded-full bg-pink-400 border-2 border-black" />
           )}
 
         </div>

@@ -41,7 +41,7 @@
 | 🤝 **Skill Exchange** | AI-powered skill matching to connect students who can teach what others want to learn — and vice versa. |
 | 🛒 **Marketplace** | Buy and sell books, notes, furniture, electronics, and other student essentials with verified seller profiles. |
 | 🌟 **Impact** | Create and join projects, communities, events, and shared initiatives that benefit the entire campus. |
-| 🧭 **COMPASS** | An intelligent AI assistant (powered by Gemini) that helps students navigate the entire On Campus ecosystem. |
+| 🧭 **~COMPASS~** | An intelligent AI assistant (powered by Gemini) that helps students navigate the entire On Campus ecosystem. |
 
 ---
 
